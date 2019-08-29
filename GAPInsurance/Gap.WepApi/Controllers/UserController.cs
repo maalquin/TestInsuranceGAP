@@ -26,18 +26,38 @@ namespace Gap.WepApi.Controllers
 
     
         [HttpPost]
-        public async Task<IHttpActionResult> Login(WebApiUserModel userModel)
+        public HttpResponseMessage Register(WebApiUserModel userModel)
         {
-            var user = await _repository.GetByNamePassword(userModel.UserName, userModel.Password);
+            var user =  _repository.GetByNamePassword(userModel.UserName, userModel.Password);
 
             if (user.Guid != null)
             {
                 var webToken = _webTokenRepository.GetbyGuid(user.Guid);
+                if (_webTokenRepository.ExpiredTokenKey(webToken.FirstOrDefault().TokenId))
+                {
+                    if (_webTokenRepository.Delete(webToken.FirstOrDefault().TokenId))
+                        return Request.CreateResponse(HttpStatusCode.Unauthorized, "User not found.");
 
-                return Ok();
+                    Guid tokenReturn = _webTokenRepository.InsertOrUpdate(user.Guid);
+
+                    return Request.CreateResponse(HttpStatusCode.OK, tokenReturn);
+                } 
+               
             }
 
-            else return BadRequest();
+            return Request.CreateResponse(HttpStatusCode.Unauthorized, "User not found.");
+        }
+
+        private GAPWebAPIUserToken CreateToken(Guid userGuid)
+        {
+            var expiredTime = DateTime.Now.AddMinutes(5);
+            Guid tokenNew = Guid.NewGuid();
+            GAPWebAPIUserToken token = new GAPWebAPIUserToken();
+            token.TokenId = tokenNew;
+            token.Guid = Guid.NewGuid();
+            token.TokenExpireDateTime = expiredTime;
+            token.WebAPIUser_Guid = userGuid;
+            return token;
         }
     }
 }

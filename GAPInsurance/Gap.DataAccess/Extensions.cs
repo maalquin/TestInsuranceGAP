@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Data.Entity;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Gap.Domain;
 
 namespace Gap.DataAccess
 {
@@ -18,7 +12,7 @@ namespace Gap.DataAccess
                     return System.Data.Entity.EntityState.Added;
                 case EntityState.Deleted:
                     return System.Data.Entity.EntityState.Deleted;
-                case EntityState.Detached:
+                case EntityState.Detatched:
                     return System.Data.Entity.EntityState.Detached;
                 case EntityState.Modified:
                     return System.Data.Entity.EntityState.Modified;

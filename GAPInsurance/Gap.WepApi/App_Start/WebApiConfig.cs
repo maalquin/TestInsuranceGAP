@@ -30,8 +30,8 @@ namespace Gap.WepApi
           
             config.Routes.MapHttpRoute(
                name: "User",
-               routeTemplate: "api/account/login",
-               defaults: new { controller = "user", action = "login" }
+               routeTemplate: "api/account/register",
+               defaults: new { controller = "user", action = "register" }
             );
         }
     }

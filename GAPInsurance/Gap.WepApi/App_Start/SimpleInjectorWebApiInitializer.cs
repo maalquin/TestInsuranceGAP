@@ -4,6 +4,7 @@ using SimpleInjector.Integration.WebApi;
 using SimpleInjector.Lifestyles;
 using Gap.DataAccess;
 using Gap.Domain;
+using Gap.DataAccess.Repositories;
 
 [assembly: WebActivatorEx.PostApplicationStartMethod(typeof(Gap.WepApi.App_Start.SimpleInjectorWebApiInitializer), "Initialize")]
 
@@ -29,6 +30,8 @@ namespace Gap.WepApi.App_Start
         private static void InitializeContainer(Container container)
         {
             container.Register<IRepository<GAPWebApiUser>, WebApiUserRepository>(Lifestyle.Transient);
+            container.Register<IWebTokenUserRepository<GAPWebAPIUserToken>, WebUserTokenRepository>(Lifestyle.Transient);
+            
         }
     }
 }

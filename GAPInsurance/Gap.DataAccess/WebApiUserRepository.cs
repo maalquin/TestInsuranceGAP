@@ -33,13 +33,13 @@ namespace Gap.DataAccess
             }
         }
 
-        public async Task<GAPWebApiUser> GetByNamePassword(string UserName, string Password)
+        public GAPWebApiUser GetByNamePassword(string UserName, string Password)
         {
             using (var context = new GapContext())
             {
-                return await context.GAPWebAPIUsers
+                return context.GAPWebAPIUsers
                                     .AsNoTracking()
-                                    .FirstOrDefaultAsync(x => x.UserName == UserName && x.Password == Password);
+                                    .FirstOrDefault(x => x.UserName == UserName && x.Password == Password);
             }
         }
     }

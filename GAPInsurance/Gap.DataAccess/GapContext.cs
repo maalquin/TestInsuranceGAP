@@ -17,7 +17,7 @@ namespace Gap.DataAccess
         public virtual DbSet<GAPPolicies> GAPPolicies { get; set; }
         public virtual DbSet<GAPTypeRisk> GAPTypeRisk { get; set; }
         public virtual DbSet<GAPWebApiUser> GAPWebAPIUsers { get; set; }
-        public virtual DbSet<GAPWebAPIUserToken> GAPWebAPIUserTokens { get; set; }
+        public virtual DbSet<GAPWebAPIUserToken> GAPWebAPIUserToken { get; set; }
 
         public GapContext() : base(DatabaseName)
         {

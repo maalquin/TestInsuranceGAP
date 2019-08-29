@@ -12,7 +12,8 @@ namespace Gap.DataAccess
     {
         Task<IEnumerable<GAPWebApiUser>> GetAll();
         Task<IEnumerable<GAPWebApiUser>> Query(Expression<Func<T, bool>> predicate);
-        Task<T> GetByNamePassword(string UserName, string Password);
-      
+        T GetByNamePassword(string UserName, string Password);
+       
+
     }
 }
