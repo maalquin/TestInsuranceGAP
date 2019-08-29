@@ -1,0 +1,10 @@
+C:\AngularProjects\GAPInsurance\Gap.Domain\bin\Debug\Gap.Domain.dll
+C:\AngularProjects\GAPInsurance\Gap.Domain\bin\Debug\Gap.Domain.pdb
+C:\AngularProjects\GAPInsurance\Gap.Domain\bin\Debug\System.ComponentModel.Annotations.dll
+C:\AngularProjects\GAPInsurance\Gap.Domain\bin\Debug\System.Data.SqlClient.dll
+C:\AngularProjects\GAPInsurance\Gap.Domain\bin\Debug\System.Data.SqlClient.xml
+C:\AngularProjects\GAPInsurance\Gap.Domain\obj\Debug\Gap.Domain.csprojAssemblyReference.cache
+C:\AngularProjects\GAPInsurance\Gap.Domain\obj\Debug\Gap.Domain.csproj.CoreCompileInputs.cache
+C:\AngularProjects\GAPInsurance\Gap.Domain\obj\Debug\Gap.Domain.csproj.CopyComplete
+C:\AngularProjects\GAPInsurance\Gap.Domain\obj\Debug\Gap.Domain.dll
+C:\AngularProjects\GAPInsurance\Gap.Domain\obj\Debug\Gap.Domain.pdb

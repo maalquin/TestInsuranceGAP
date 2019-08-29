@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Gap.Domain;
+using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
@@ -11,7 +12,12 @@ namespace Gap.DataAccess
     {
         private const string DatabaseName = "GAPINSURANCETEST";
 
-       
+        public virtual DbSet<GAPCoverTypePolicy> GAPCoverTypePolicy { get; set; }
+        public virtual DbSet<GAPCustomerPolicy> GAPCustomerPolicy { get; set; }
+        public virtual DbSet<GAPPolicies> GAPPolicies { get; set; }
+        public virtual DbSet<GAPTypeRisk> GAPTypeRisk { get; set; }
+        public virtual DbSet<GAPWebApiUser> GAPWebAPIUsers { get; set; }
+        public virtual DbSet<GAPWebAPIUserToken> GAPWebAPIUserTokens { get; set; }
 
         public GapContext() : base(DatabaseName)
         {
@@ -21,8 +27,7 @@ namespace Gap.DataAccess
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-           // modelBuilder.Entity<Book>().HasRequired(x => x.Publisher);
-            //modelBuilder.Entity<Book>().HasRequired(x => x.Author);
+          
         }
     }
 }

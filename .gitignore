@@ -7,3 +7,5 @@
 /GapInsurance_bk
 /GAP_INSURANCE/GapInsurance
 .vs/
+/GAPInsurance/GAP.Common/bin/Debug
+/GAPInsurance/Gap.DataAccess/bin/Debug

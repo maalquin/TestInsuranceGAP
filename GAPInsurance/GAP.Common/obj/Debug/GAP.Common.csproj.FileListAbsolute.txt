@@ -1,0 +1,11 @@
+C:\AngularProjects\GAPInsurance\GAP.Common\bin\Debug\GAP.Common.dll
+C:\AngularProjects\GAPInsurance\GAP.Common\bin\Debug\GAP.Common.pdb
+C:\AngularProjects\GAPInsurance\GAP.Common\bin\Debug\System.Configuration.ConfigurationManager.dll
+C:\AngularProjects\GAPInsurance\GAP.Common\bin\Debug\System.Security.AccessControl.dll
+C:\AngularProjects\GAPInsurance\GAP.Common\bin\Debug\System.Security.Permissions.dll
+C:\AngularProjects\GAPInsurance\GAP.Common\bin\Debug\System.Security.Principal.Windows.dll
+C:\AngularProjects\GAPInsurance\GAP.Common\obj\Debug\GAP.Common.csprojAssemblyReference.cache
+C:\AngularProjects\GAPInsurance\GAP.Common\obj\Debug\GAP.Common.csproj.CoreCompileInputs.cache
+C:\AngularProjects\GAPInsurance\GAP.Common\obj\Debug\GAP.Common.csproj.CopyComplete
+C:\AngularProjects\GAPInsurance\GAP.Common\obj\Debug\GAP.Common.dll
+C:\AngularProjects\GAPInsurance\GAP.Common\obj\Debug\GAP.Common.pdb
