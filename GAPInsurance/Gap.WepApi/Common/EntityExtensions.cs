@@ -52,7 +52,8 @@ namespace Gap.WepApi.Common
                PolicyName = policies.PolicyName,
                FlagDisable = policies.FlagEnable,
                PolicyValue = policies.ValuePolicy.ToString(),
-               customerPolicies = policies.GAPCustomerPolicy.ToModel()
+               customerPolicies = policies.GAPCustomerPolicy.ToModel(),
+               CustomerId = policies.GAPCustomerPolicy_Guid
                //customerPolicies = policies.GAPCustomerPolicy
 
             };

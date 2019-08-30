@@ -1,9 +1,12 @@
 ﻿using Gap.WepApi.Constraints;
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
+using System.Web.Http.Cors;
 using System.Web.Http.Routing;
+
 
 namespace Gap.WepApi
 {
@@ -11,6 +14,9 @@ namespace Gap.WepApi
     {
         public static void Register(HttpConfiguration config)
         {
+            config.EnableCors(new EnableCorsAttribute("http://localhost:4200", headers: "*", methods: "*"));
+            
+
             // Web API configuration and services
             var constraintResolver = new DefaultInlineConstraintResolver();
             constraintResolver.ConstraintMap.Add("fullname", typeof(FullnameConstraint));
@@ -49,7 +55,13 @@ namespace Gap.WepApi
             routeTemplate: "api/insurance/GetPolicies",
             defaults: new { controller = "insurance", action = "GetPolicies" });
 
-          
+            config.Routes.MapHttpRoute(
+            name: "policyInsert",
+            routeTemplate: "api/insurance/InsertUpdate",
+            defaults: new { controller = "insurance", action = "InsertUpdate" });
+
+        
         }
+       
     }
 }

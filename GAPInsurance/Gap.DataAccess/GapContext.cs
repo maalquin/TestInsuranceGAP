@@ -23,6 +23,7 @@ namespace Gap.DataAccess
 
         public GapContext() : base(DatabaseName)
         {
+            base.Configuration.ProxyCreationEnabled = false;
             var connectionString = GAP.Common.Configuration.GetConnectionStringForKey(DatabaseName);
             Database.Connection.ConnectionString = connectionString;
         }

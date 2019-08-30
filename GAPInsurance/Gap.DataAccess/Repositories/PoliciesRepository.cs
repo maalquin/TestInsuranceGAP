@@ -22,10 +22,20 @@ namespace Gap.DataAccess.Repositories
                                     .ToList();
             }
         }
+        public async Task InsertOrUpdate(GAPPolicies policies)
+        {
+            using (var context = new GapContext())
+            {
+                context.Entry(policies).State = policies.EntityState.ToEntityFrameworkState();
+                context.Entry(policies.GAPCustomerPolicy).State = policies.GAPCustomerPolicy.EntityState.ToEntityFrameworkState();
+                await context.SaveChangesAsync();
+            }
+        }
     }
 
     public interface IPoliciesRepository<T>
     {
         IEnumerable<GAPPolicies> GetAll();
+        Task InsertOrUpdate(GAPPolicies policies);
     }
 }

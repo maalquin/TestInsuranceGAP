@@ -1,8 +1,17 @@
 C:\AngularProjects\GAPInsurance\Gap.Domain\bin\Debug\Gap.Domain.dll
 C:\AngularProjects\GAPInsurance\Gap.Domain\bin\Debug\Gap.Domain.pdb
+C:\AngularProjects\GAPInsurance\Gap.Domain\bin\Debug\Newtonsoft.Json.dll
 C:\AngularProjects\GAPInsurance\Gap.Domain\bin\Debug\System.ComponentModel.Annotations.dll
 C:\AngularProjects\GAPInsurance\Gap.Domain\bin\Debug\System.Data.SqlClient.dll
+C:\AngularProjects\GAPInsurance\Gap.Domain\bin\Debug\System.Net.Http.Formatting.dll
+C:\AngularProjects\GAPInsurance\Gap.Domain\bin\Debug\System.Web.Cors.dll
+C:\AngularProjects\GAPInsurance\Gap.Domain\bin\Debug\System.Web.Http.Cors.dll
+C:\AngularProjects\GAPInsurance\Gap.Domain\bin\Debug\System.Web.Http.dll
+C:\AngularProjects\GAPInsurance\Gap.Domain\bin\Debug\Newtonsoft.Json.xml
 C:\AngularProjects\GAPInsurance\Gap.Domain\bin\Debug\System.Data.SqlClient.xml
+C:\AngularProjects\GAPInsurance\Gap.Domain\bin\Debug\System.Net.Http.Formatting.xml
+C:\AngularProjects\GAPInsurance\Gap.Domain\bin\Debug\System.Web.Http.xml
+C:\AngularProjects\GAPInsurance\Gap.Domain\bin\Debug\System.Web.Http.Cors.xml
 C:\AngularProjects\GAPInsurance\Gap.Domain\obj\Debug\Gap.Domain.csprojAssemblyReference.cache
 C:\AngularProjects\GAPInsurance\Gap.Domain\obj\Debug\Gap.Domain.csproj.CoreCompileInputs.cache
 C:\AngularProjects\GAPInsurance\Gap.Domain\obj\Debug\Gap.Domain.csproj.CopyComplete

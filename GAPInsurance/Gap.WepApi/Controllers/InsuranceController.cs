@@ -1,11 +1,13 @@
 ﻿using Gap.DataAccess.Repositories;
 using Gap.Domain;
 using Gap.WepApi.Common;
+using Gap.WepApi.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Threading.Tasks;
 using System.Web.Http;
 
 namespace Gap.WepApi.Controllers
@@ -53,5 +55,19 @@ namespace Gap.WepApi.Controllers
             var policies = _policiesRepository.GetAll();
             return Request.CreateResponse(HttpStatusCode.OK, policies.Select(x => x.ToModel()));
         }
+
+      
+        [HttpPost]
+        public async Task<IHttpActionResult> InsertUpdate(PolicyModel policyModel)
+        {
+            if (policyModel.PolicyId != null)
+                return BadRequest("Cannot add policy as it already has an id.");
+
+            await _policiesRepository.InsertOrUpdate(policyModel.ToEntity());
+
+            return StatusCode(HttpStatusCode.Created);
+        }
+
+
     }
 }
