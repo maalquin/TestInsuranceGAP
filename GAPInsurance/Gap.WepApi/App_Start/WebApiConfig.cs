@@ -33,6 +33,23 @@ namespace Gap.WepApi
                routeTemplate: "api/account/register",
                defaults: new { controller = "user", action = "register" }
             );
+
+            config.Routes.MapHttpRoute(
+             name: "Insurance",
+             routeTemplate: "api/insurance/CoverTypePolicy",
+             defaults: new { controller = "insurance", action = "CoverTypePolicy" });
+
+            config.Routes.MapHttpRoute(
+            name: "typeRisk",
+            routeTemplate: "api/insurance/TypeOfRisk",
+            defaults: new { controller = "insurance", action = "TypeOfRisk" });
+
+            config.Routes.MapHttpRoute(
+            name: "policies",
+            routeTemplate: "api/insurance/GetPolicies",
+            defaults: new { controller = "insurance", action = "GetPolicies" });
+
+          
         }
     }
 }

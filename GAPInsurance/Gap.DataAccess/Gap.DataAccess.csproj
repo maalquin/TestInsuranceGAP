@@ -59,7 +59,10 @@
     <Compile Include="GapContext.cs" />
     <Compile Include="IRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\CoverTypePolicyRepository.cs" />
     <Compile Include="Repositories\IWebTokenUserRepository.cs" />
+    <Compile Include="Repositories\PoliciesRepository.cs" />
+    <Compile Include="Repositories\TypeRiskRepository.cs" />
     <Compile Include="WebApiUserRepository.cs" />
     <Compile Include="WebUserTokenRepository.cs" />
   </ItemGroup>

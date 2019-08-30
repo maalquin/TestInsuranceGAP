@@ -18,7 +18,9 @@ namespace Gap.WepApi.Controllers
         private readonly IRepository<GAPWebApiUser> _repository;
         private readonly IWebTokenUserRepository<GAPWebAPIUserToken> _webTokenRepository;
 
-        public UserController(IRepository<GAPWebApiUser> repository, IWebTokenUserRepository<GAPWebAPIUserToken> webTokenRepository)
+        public UserController(
+            IRepository<GAPWebApiUser> repository, 
+            IWebTokenUserRepository<GAPWebAPIUserToken> webTokenRepository)
         {
             _repository = repository;
             _webTokenRepository = webTokenRepository;
@@ -48,16 +50,6 @@ namespace Gap.WepApi.Controllers
             return Request.CreateResponse(HttpStatusCode.Unauthorized, "User not found.");
         }
 
-        private GAPWebAPIUserToken CreateToken(Guid userGuid)
-        {
-            var expiredTime = DateTime.Now.AddMinutes(5);
-            Guid tokenNew = Guid.NewGuid();
-            GAPWebAPIUserToken token = new GAPWebAPIUserToken();
-            token.TokenId = tokenNew;
-            token.Guid = Guid.NewGuid();
-            token.TokenExpireDateTime = expiredTime;
-            token.WebAPIUser_Guid = userGuid;
-            return token;
-        }
+     
     }
 }

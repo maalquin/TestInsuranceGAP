@@ -11,10 +11,10 @@ namespace Gap.Domain
     public class GAPCoverTypePolicy : IEntity
     {
         [Key]
-        public Guid Guid { get; set; }
-        public string CovertTyeName { get; set; }
+        public Guid GAPCoverTypePolicy_Guid { get; set; }
+        public string CovertTypeName { get; set; }
 
-        public virtual ICollection<GAPCoverTypePolicy> CoverTypePolicies { get; set; } = new List<GAPCoverTypePolicy>();
+        
 
         [NotMapped]
         public EntityState EntityState { get; set; }

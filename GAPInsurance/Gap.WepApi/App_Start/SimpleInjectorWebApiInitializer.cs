@@ -31,7 +31,13 @@ namespace Gap.WepApi.App_Start
         {
             container.Register<IRepository<GAPWebApiUser>, WebApiUserRepository>(Lifestyle.Transient);
             container.Register<IWebTokenUserRepository<GAPWebAPIUserToken>, WebUserTokenRepository>(Lifestyle.Transient);
+            container.Register<ICoverTypePolicyRepository<GAPCoverTypePolicy>, CoverTypePolicyRepository>(Lifestyle.Transient);
+            container.Register<ITypeRiksRepository<GAPTypeRisk>, TypeRiskRepository>(Lifestyle.Transient);
+            container.Register<IPoliciesRepository<GAPPolicies>, PoliciesRepository>(Lifestyle.Transient);
             
+
+
+
         }
     }
 }

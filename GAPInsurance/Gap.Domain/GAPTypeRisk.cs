@@ -11,11 +11,10 @@ namespace Gap.Domain
     public class GAPTypeRisk : IEntity
     {
         [Key]
-        public Guid Guid { get; set; }
+        public Guid GAPTypeRisk_Guid { get; set; }
         public string TypeRiskName { get; set; }
         public double MaxValueCoverRisk { get; set; }
 
-        public virtual ICollection<GAPTypeRisk> TypesRisk { get; set; } = new List<GAPTypeRisk>();
 
         [NotMapped]
         public EntityState EntityState { get; set; }
