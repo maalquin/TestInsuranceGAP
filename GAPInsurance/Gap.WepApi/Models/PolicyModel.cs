@@ -19,8 +19,8 @@ namespace Gap.WepApi.Models
         public DateTime DateModified { get; set; }
         public bool FlagDisable { get; set; }
         public string PolicyName { get; set; }
-        public GAPTypeRisk TypeRisks { get; set; }
-        public GAPCoverTypePolicy CoverTypePolicy { get; set; }
+        public TypeRiskModel TypeRisks { get; set; }
+        public CoverTypeModel CoverTypePolicy { get; set; }
         public CustomerModel customerPolicies { get; set; }
 
     }

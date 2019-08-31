@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
 import { NgForm } from '@angular/forms';
+import { PolicyService } from '../shared/policy.service';
+import { Policies } from '../shared/policy.model';
 
 
 @Component({
@@ -9,11 +11,16 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./policies.component.css']
 })
 export class PoliciesComponent implements OnInit {
+  policyList : Policies[];
 
-  constructor() { }
+  constructor(private policyService: PolicyService) { }
 
   ngOnInit() {
-    
+    this.policyService.getAllPolicies().then(res => this.policyList = res as Policies[]);
+
+  }
+  EditPolicy(){
+
   }
 
 

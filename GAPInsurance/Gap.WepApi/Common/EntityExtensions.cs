@@ -45,8 +45,8 @@ namespace Gap.WepApi.Common
             {
                PolicyId = policies.Guid,
                AmontMonths = policies.MonthsPolicy,
-               TypeRisks = policies.GAPTypeRisk,
-               CoverTypePolicy = policies.GAPCoverTypePolicy,
+               TypeRisks = policies.GAPTypeRisk.ToModel(),
+               CoverTypePolicy = policies.GAPCoverTypePolicy.ToModel(),
                PolicyIssuer = policies.DatetimePolicyIssuer,
                DateCreated = policies.DatetimeCreated,
                PolicyName = policies.PolicyName,
@@ -54,7 +54,6 @@ namespace Gap.WepApi.Common
                PolicyValue = policies.ValuePolicy.ToString(),
                customerPolicies = policies.GAPCustomerPolicy.ToModel(),
                CustomerId = policies.GAPCustomerPolicy_Guid
-               //customerPolicies = policies.GAPCustomerPolicy
 
             };
         }

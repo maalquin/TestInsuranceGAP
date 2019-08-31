@@ -5,6 +5,7 @@ import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { PolicyItemsComponent } from '../policy-items/policy-items.component';
 import { CustomerService } from 'src/app/shared/customer.service';
 import { Customer } from 'src/app/shared/customer.model';
+import { PoliciesComponent } from '../policies.component';
 
 
 
@@ -15,6 +16,7 @@ import { Customer } from 'src/app/shared/customer.model';
 })
 export class PolicyComponent implements OnInit {
 customerList:Customer[];
+
   constructor(private service:PolicyService,
     private dialog:MatDialog,
     private customerService:CustomerService) { }
@@ -49,6 +51,15 @@ customerList:Customer[];
     dialogConfig.width = "50%";
     dialogConfig.data = {PolicyItemIndex, PolicyId};
     this.dialog.open(PolicyItemsComponent,dialogConfig);
+  }
+
+  CheckAllPolicies(){
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.autoFocus = true;
+    dialogConfig.disableClose = true;
+    dialogConfig.width = "50%";
+    this.dialog.open(PoliciesComponent,dialogConfig);
+
   }
 
 }
