@@ -2,33 +2,29 @@
   <input type="hidden"  name="PolicyId" #PolicyId="ngModel" [(ngModel)]="service.formData.PolicyId">
   <div class="row">
     <div class="col-md-6">
-      <div class="form-group">
-        <label>Policy ID</label>
-        <div class="input-group">
-          <div class="input-group-prepend">
-            <div class="input-group-text">#</div>
-          </div>
-          <input name="PolicyNo" #PolicyNo="ngModel" [(ngModel)]="service.formData.PolicyNo" class="form-control" readonly>
-        </div>
+     
         <label>Customer</label>
-        <select name="CustomerId" #CustomerId="ngModel" [(ngModel)]="service.formData.CustomerId" class="form-control"
+        <select name="CustomerId" required #CustomerId="ngModel" [(ngModel)]="service.formData.CustomerId" class="form-control"
         [class.is-invalid]="!isValid && service.formData.CustomerId==0">
           <option value="0">-Select-</option>
+          <option *ngFor="let item of customerList" value="{{item.Id}}">{{item.Name}} {{item.LastName}}</option>
 
         </select>
       </div>
+      <div class="col-md-6">
+        <label>Date Issuer Policy</label>
+        <input type="text" placeholder="Datepicker" class="form-control" bsDatepicker required>
+      </div>
   </div>
-  <div class="col-md-6">
-
-        
-     
-    </div>
-    </div>
-  </div>
+  <br>  <br>
   <table class="table table-borderless">
       <thead class="thead-light">
         <th>Policy ID</th>
-        <th>Customer Name</th>
+        <th>Policy Name</th>
+        <th>Risk Name</th>
+        <th>Type Covering</th>
+        <th>Max % Covering</th>
+        <th>Policy Value</th>
     
         <th>
           <a class="btn btn-sm btn-success text-white" (click)="AddOrEditPolicyItems(null,service.formData.PolicyId)"><i class="fa fa-plus"></i> Add Item</a>
@@ -37,13 +33,18 @@
       <tbody>
         <tr *ngIf="service.policyItems.length==0" [class.text-danger]="!isValid && service.policyItems.length==0">
           <td class="font-italic text-center" colspan="5">
-            No food item selected for this order.
+            No Policies item selected for this.
           </td>
         </tr>
   
         <tr *ngFor="let item of service.policyItems;let i=index;">
           <td>{{item.PolicyNo}}</td>
-          <td>{{item.Customer.Name}}</td>
+          <td>{{item.PolicyName}}</td>
+          <td>{{item.NameRisk}}</td>
+          <td>{{item.NameCover}}</td>
+          <td>{{item.MaxCoverPolicy}}</td>
+          <td>{{item.PolicyValue}}</td>
+
           
           <td>
             <a class="btn btn-sm btn-info text-white" (click)="AddOrEditPolicyItems(i,service.formData.PolicyId)"><i class="fa fa-pencil"></i></a>

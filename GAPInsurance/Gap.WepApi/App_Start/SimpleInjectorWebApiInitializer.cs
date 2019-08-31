@@ -34,7 +34,7 @@ namespace Gap.WepApi.App_Start
             container.Register<ICoverTypePolicyRepository<GAPCoverTypePolicy>, CoverTypePolicyRepository>(Lifestyle.Transient);
             container.Register<ITypeRiksRepository<GAPTypeRisk>, TypeRiskRepository>(Lifestyle.Transient);
             container.Register<IPoliciesRepository<GAPPolicies>, PoliciesRepository>(Lifestyle.Transient);
-            
+            container.Register<ICustomerRepository<GAPCustomerPolicy>, CustomerRepository>(Lifestyle.Transient);
 
 
 

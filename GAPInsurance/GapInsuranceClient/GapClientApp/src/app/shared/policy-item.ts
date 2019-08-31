@@ -16,6 +16,8 @@ export class PolicyItem {
     PolicyName:string;
     PolicyNo:string;
     MaxCoverPolicy:string;
+    NameRisk:string;
+    NameCover:string;
    // TypeRisks:Typerisk;
     //CoverTypePolicy: Covertype;
     //customerPolicies: Customer;

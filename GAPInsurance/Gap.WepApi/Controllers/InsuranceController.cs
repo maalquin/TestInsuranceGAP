@@ -18,16 +18,19 @@ namespace Gap.WepApi.Controllers
         private readonly ICoverTypePolicyRepository<GAPCoverTypePolicy> _covertTypePolicyRepository;
         private readonly ITypeRiksRepository<GAPTypeRisk> _typeRiskRepository;
         private readonly IPoliciesRepository<GAPPolicies> _policiesRepository;
+        private readonly ICustomerRepository<GAPCustomerPolicy> _customerRepository;
 
         public InsuranceController(
             ICoverTypePolicyRepository<GAPCoverTypePolicy> coverTypePolicyRepository,
             ITypeRiksRepository<GAPTypeRisk> typeRiskRepository,
-            IPoliciesRepository<GAPPolicies> policiesRepository
+            IPoliciesRepository<GAPPolicies> policiesRepository,
+            ICustomerRepository<GAPCustomerPolicy> customerRepository
             )
         {
             _covertTypePolicyRepository = coverTypePolicyRepository;
             _typeRiskRepository = typeRiskRepository;
             _policiesRepository = policiesRepository;
+            _customerRepository = customerRepository;
         }
         /// <summary>
         /// Get CovertType of Policies.
@@ -66,6 +69,12 @@ namespace Gap.WepApi.Controllers
             await _policiesRepository.InsertOrUpdate(policyModel.ToEntity());
 
             return StatusCode(HttpStatusCode.Created);
+        }
+        [HttpGet]
+        public HttpResponseMessage GetCustomers()
+        {
+            var customer = _customerRepository.GetAll();
+            return Request.CreateResponse(HttpStatusCode.OK, customer.Select(x => x.ToModel()));
         }
 
 

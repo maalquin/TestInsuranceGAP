@@ -7,6 +7,8 @@ import { CovertypeService } from 'src/app/shared/covertype.service';
 import { Covertype } from 'src/app/shared/covertype.model';
 import { TyperiskService } from 'src/app/shared/typerisk.service';
 import { Typerisk } from 'src/app/shared/typerisk.model';
+import { PolicyService } from 'src/app/shared/policy.service';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-policy-items',
@@ -22,7 +24,8 @@ export class PolicyItemsComponent implements OnInit {
    @Inject(MAT_DIALOG_DATA) public data,
    public dialogRef: MatDialogRef<PolicyItemsComponent>,
    private covertypeService:CovertypeService,
-   private typeRiskService:TyperiskService){ }
+   private typeRiskService:TyperiskService,
+   private policyService: PolicyService){ }
 
   ngOnInit() {
     this.covertypeService.getCovertTypes().then(res => this.coverTypeList = res as Covertype[]);
@@ -30,7 +33,7 @@ export class PolicyItemsComponent implements OnInit {
     this.formData ={  
       PoliciyItemID: null,
       PolicyId: this.data.PolicyId,
-      PolicyNo: '',
+      PolicyNo: Math.floor(100000 + Math.random()*90000).toString(),
       CoverTypeId: '',
       RiskTypeId: '',
       CustomerId: '',
@@ -39,7 +42,9 @@ export class PolicyItemsComponent implements OnInit {
       PolicyValue: '',
       FlagDisable: false,
       PolicyName: '',
-      MaxCoverPolicy:''
+      MaxCoverPolicy:'',
+      NameRisk:'',
+      NameCover:''
 
     }
   }
@@ -50,9 +55,23 @@ export class PolicyItemsComponent implements OnInit {
     }
     else{
       this.formData.MaxCoverPolicy = this.typeRiskList[ctrl.selectedIndex-1].MaxCovering;
-      
+      this.formData.NameRisk = this.typeRiskList[ctrl.selectedIndex-1].RiskName;
+
     }
 
+  }
+  nameCoverSet(ctrl){
+    if(ctrl.selectedIndex == 0){
+      this.formData.NameCover = ''
+    }
+    else{
+      this.formData.NameCover = this.coverTypeList[ctrl.selectedIndex-1].Name;
+    }
+
+  }
+  onSubmit(form:NgForm){
+    this.policyService.policyItems.push(form.value);
+    this.dialogRef.close();
   }
 
 

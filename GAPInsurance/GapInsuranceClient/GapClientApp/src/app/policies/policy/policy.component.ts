@@ -3,7 +3,9 @@ import { PolicyService } from 'src/app/shared/policy.service';
 import { NgForm } from '@angular/forms';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { PolicyItemsComponent } from '../policy-items/policy-items.component';
-import {MatDatepickerModule} from '@angular/material/datepicker';
+import { CustomerService } from 'src/app/shared/customer.service';
+import { Customer } from 'src/app/shared/customer.model';
+
 
 
 @Component({
@@ -12,12 +14,13 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
   styleUrls: []
 })
 export class PolicyComponent implements OnInit {
-
+customerList:Customer[];
   constructor(private service:PolicyService,
     private dialog:MatDialog,
-    private calendar:MatDatepickerModule ) { }
+    private customerService:CustomerService) { }
 
   ngOnInit() {
+    this.customerService.getCustomerList().then(res => this.customerList = res as Customer[]);
     this.resetForm();
   }
 
@@ -34,7 +37,7 @@ export class PolicyComponent implements OnInit {
       FlagDisable:false,
       PolicyName:'',
       PolicyIssuer: new Date(),
-      PolicyNo:Math.floor(100000 + Math.random()*90000).toString()
+      PolicyNo:''
     };
     this.service.policyItems = [];
   }

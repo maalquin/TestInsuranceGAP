@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatDialogModule} from '@angular/material/dialog';
 import { HttpClientModule } from '@angular/common/http';
+import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 
 
 import { FormsModule } from '@angular/forms';
@@ -28,7 +29,8 @@ import { PolicyItemsComponent } from './policies/policy-items/policy-items.compo
     FormsModule,
     BrowserAnimationsModule,
     MatDialogModule,
-    HttpClientModule
+    HttpClientModule,
+    BsDatepickerModule.forRoot(),
   ],
   entryComponents:[PolicyItemsComponent],
   providers: [

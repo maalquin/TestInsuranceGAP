@@ -25,11 +25,7 @@ namespace Gap.WepApi
             config.MapHttpAttributeRoutes(constraintResolver);
             Routing_Account(config);
 
-            //config.Routes.MapHttpRoute(
-            //    name: "DefaultApi",
-            //    routeTemplate: "api/{controller}/{id}",
-            //    defaults: new { id = RouteParameter.Optional }
-            //);
+      
         }
         public static void Routing_Account(HttpConfiguration config)
         {
@@ -60,7 +56,12 @@ namespace Gap.WepApi
             routeTemplate: "api/insurance/InsertUpdate",
             defaults: new { controller = "insurance", action = "InsertUpdate" });
 
-        
+            config.Routes.MapHttpRoute(
+            name: "customer",
+            routeTemplate: "api/insurance/GetCustomers",
+            defaults: new { controller = "insurance", action = "GetCustomers" });
+
+
         }
        
     }
