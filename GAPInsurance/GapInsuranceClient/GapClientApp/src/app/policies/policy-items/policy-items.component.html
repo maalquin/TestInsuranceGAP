@@ -1,33 +1,51 @@
 <h4 class="dispaly-4">Policy Item</h4>
 <hr>
 <form #form="ngForm" autocomplete="off" (submit)="onSubmit(form)">
-  <input type="hidden" class="hidden" name="NameRisk" #NameRisk="ngModel" [(ngModel)]="formData.NameRisk">
-  <input type="hidden" class="hidden" name="NameCover" #NameCover="ngModel" [(ngModel)]="formData.NameCover">
-<div class="form-group">
+  <input type="hidden" class="hidden" name="CustomerId" #customerId="ngModel" [(ngModel)]="formData.CustomerId">
+  <input type="hidden" class="hidden" name="PolicyIssuer" #PolicyIssuer="ngModel" [(ngModel)]="formData.PolicyIssuer">
+  <input type="hidden" class="hidden" name="PolicyId" #PolicyId="ngModel" [(ngModel)]="formData.PolicyId">
+  <div class="form-group">
     <label>Policy ID</label>
     <div class="input-group">
       <div class="input-group-prepend">
         <div class="input-group-text">#</div>
       </div>
-      <input name="PolicyNo" #PolicyNo="ngModel" [(ngModel)]="formData.PolicyNo" class="form-control" readonly>
+      <input name="PolicyNumber" #PolicyNumber="ngModel" [(ngModel)]="formData.PolicyNumber" class="form-control" readonly>
     </div>
 </div>
+<div class="form-row"> 
+<div class="form-group col-md-6">
   <div class="form-group">
     <label>Cover Type</label>
-    <select name="CoverTypeId" #CoverTypeId="ngModel" [(ngModel)]="formData.CoverTypeId" class="form-control" (change)="nameCoverSet($event.target)"
-    [class.is-invalid]="!isValid && formData.CoverTypeId==0">
-      <option value="0">-Select-</option>
+    <select name="CovertypeId" #CovertypeId="ngModel" [(ngModel)]="formData.CoverTypePolicy.Id" class="form-control" (change)="nameCoverSet($event.target)"
+    [class.is-invalid]="!isValid && formData.CoverTypePolicy.Id=='0'">
+      <option value='0'>-Select-</option>
       <option *ngFor="let item of coverTypeList" value="{{item.Id}}">{{item.Name}}</option>
 
     </select>
   </div>
+</div>
+<div class="form-group col-md-6">
+    <div class="form-group">
+    <label># Months Covering</label>
+    <div class="input-group">
+      
+      <input name="AmontMonths"  type="number" #AmontMonths="ngModel" [(ngModel)]="formData.AmontMonths" class="form-control" required>
+      <div class="validation-error" *ngIf="AmontMonths.is-invalid && AmontMonths.touched" >
+        this Field is requiered
+      </div>
+     
+    </div>
+    </div>
+</div>
+</div> 
   <div class="form-row">
       <div class="form-group col-md-6">
         <div class="form-group">
             <label>Type Risk</label>
-            <select name="RiskTypeId" #RiskTypeId="ngModel" [(ngModel)]="formData.RiskTypeId" 
+            <select name="TypeRisksId" #TypeRisksId="ngModel" [(ngModel)]="formData.TypeRisks.Id" 
             class="form-control" (change)="maxValueCover($event.target)"
-            [class.is-invalid]="!isValid && formData.RiskTypeId==0">
+            [class.is-invalid]="!isValid && formData.TypeRisks.Id=='0'">
               <option value="0">-Select-</option>
               <option *ngFor="let item of typeRiskList" value="{{item.Id}}">{{item.RiskName}}</option>
             </select>
@@ -46,9 +64,9 @@
           <label>Max Covering</label>
           <div class="input-group">
               <div class="input-group-prepend">
-                <div class="input-group-text">%</div>
+                <div class="input-group-text"></div>
               </div>
-              <input name="MaxCoverPolicy" #MaxCoverPolicy="ngModel" [(ngModel)]="formData.MaxCoverPolicy" class="form-control" readonly>
+              <input name="MaxCovering" #MaxCovering="ngModel" [(ngModel)]="formData.TypeRisks.MaxCovering" class="form-control" readonly>
             </div>
       </div> 
     <div class="form-group col-md-6">

@@ -1,4 +1,5 @@
 ﻿using Gap.Domain;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,10 +16,12 @@ namespace Gap.WepApi.Models
         public DateTime PolicyIssuer { get; set; }
         public int AmontMonths { get; set; }
         public string PolicyValue { get; set; }
+       
         public DateTime DateCreated { get; set; }
-        public DateTime DateModified { get; set; }
+        public DateTime? DateModified { get; set; }
         public bool FlagDisable { get; set; }
         public string PolicyName { get; set; }
+        public int PolicyNumber { get; set; }
         public TypeRiskModel TypeRisks { get; set; }
         public CoverTypeModel CoverTypePolicy { get; set; }
         public CustomerModel customerPolicies { get; set; }

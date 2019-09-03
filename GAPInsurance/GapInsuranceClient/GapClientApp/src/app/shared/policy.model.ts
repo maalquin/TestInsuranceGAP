@@ -11,9 +11,11 @@ export class Policy {
     PolicyIssuer:Date;
     AmontMonths:number;
     PolicyValue:string;
+    //DateCreated: Date;
+    //DateModified:Date;
     FlagDisable:boolean;
     PolicyName:string;
-    PolicyNo:string;
+    PolicyNumber:string;
 
 }
 

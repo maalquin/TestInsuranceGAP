@@ -43,7 +43,10 @@ namespace Gap.WepApi.Controllers
            
             return Request.CreateResponse(HttpStatusCode.OK, coverTypePolicies.Select(x => x.ToModel()));
         }
-
+        /// <summary>
+        /// List Type of Risk.
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         public HttpResponseMessage TypeOfRisk()
         {
@@ -52,6 +55,12 @@ namespace Gap.WepApi.Controllers
             return Request.CreateResponse(HttpStatusCode.OK, riskPolicies.Select(x => x.ToModel()));
         }
 
+        /// <summary>
+        /// this method needs Authorize.
+        /// List of Policies.
+        /// </summary>
+        /// <returns></returns>
+        [Authorize]
         [HttpGet]
         public HttpResponseMessage GetPolicies()
         {
@@ -59,17 +68,32 @@ namespace Gap.WepApi.Controllers
             return Request.CreateResponse(HttpStatusCode.OK, policies.Select(x => x.ToModel()));
         }
 
-      
+      /// <summary>
+      /// Method for inserting or updating data.
+      /// </summary>
+      /// <param name="policyModel"></param>
+      /// <returns></returns>
         [HttpPost]
-        public async Task<IHttpActionResult> InsertUpdate(PolicyModel policyModel)
+        public async Task<IHttpActionResult> InsertUpdate(PolicyRequestModel[] policyModel)
         {
-            if (policyModel.PolicyId != null)
+          
+            if (policyModel == null)
                 return BadRequest("Cannot add policy as it already has an id.");
-
-            await _policiesRepository.InsertOrUpdate(policyModel.ToEntity());
+            else
+            {
+                foreach (var policy in policyModel)
+                {
+                    await _policiesRepository.InsertOrUpdate(policy.ToEntity());
+                }
+            }
 
             return StatusCode(HttpStatusCode.Created);
         }
+
+        /// <summary>
+        /// Get List of Customers.
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         public HttpResponseMessage GetCustomers()
         {

@@ -6,6 +6,11 @@ import { PolicyItemsComponent } from '../policy-items/policy-items.component';
 import { CustomerService } from 'src/app/shared/customer.service';
 import { Customer } from 'src/app/shared/customer.model';
 import { PoliciesComponent } from '../policies.component';
+import { PolicyItem } from 'src/app/shared/policy-item';
+import { Router } from '@angular/router';
+import { UserService } from 'src/app/shared/user.service';
+import { ToastrService } from 'ngx-toastr';
+
 
 
 
@@ -19,7 +24,10 @@ customerList:Customer[];
 
   constructor(private service:PolicyService,
     private dialog:MatDialog,
-    private customerService:CustomerService) { }
+    private customerService:CustomerService,
+    private router: Router, 
+    private userService: UserService,
+    private toastService: ToastrService) { }
 
   ngOnInit() {
     this.customerService.getCustomerList().then(res => this.customerList = res as Customer[]);
@@ -39,17 +47,20 @@ customerList:Customer[];
       FlagDisable:false,
       PolicyName:'',
       PolicyIssuer: new Date(),
-      PolicyNo:''
+      PolicyNumber:''
     };
     this.service.policyItems = [];
   }
 
-  AddOrEditPolicyItems(PolicyItemIndex, PolicyId){
+  AddOrEditPolicyItems(PolicyItemId, PolicyId){
+    
+    var customerID = this.service.formData.CustomerId;
+    var dateIssuer = this.service.formData.PolicyIssuer;
     const dialogConfig = new MatDialogConfig();
     dialogConfig.autoFocus = true;
     dialogConfig.disableClose = true;
     dialogConfig.width = "50%";
-    dialogConfig.data = {PolicyItemIndex, PolicyId};
+    dialogConfig.data = {customerID,dateIssuer,PolicyItemId };
     this.dialog.open(PolicyItemsComponent,dialogConfig);
   }
 
@@ -61,5 +72,24 @@ customerList:Customer[];
     this.dialog.open(PoliciesComponent,dialogConfig);
 
   }
+
+  onSubmit(){
+    var dataInsert = this.service.policyItems;
+    
+    this.service.insertPolicy(dataInsert).subscribe((data: PolicyItem[]) => 
+    {
+          console.log(data);
+          this.toastService.success("the record has been inserted");
+          this.resetForm();
+
+    }, (error: any) => {
+      this.toastService.error(error);
+      console.log(error)
+    }
+    );
+    
+
+  }
+
 
 }

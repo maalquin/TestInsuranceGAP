@@ -5,6 +5,10 @@ using SimpleInjector.Lifestyles;
 using Gap.DataAccess;
 using Gap.Domain;
 using Gap.DataAccess.Repositories;
+using System;
+using Owin;
+using Microsoft.Owin.Security.OAuth;
+using Microsoft.Owin;
 
 [assembly: WebActivatorEx.PostApplicationStartMethod(typeof(Gap.WepApi.App_Start.SimpleInjectorWebApiInitializer), "Initialize")]
 
@@ -34,10 +38,12 @@ namespace Gap.WepApi.App_Start
             container.Register<ICoverTypePolicyRepository<GAPCoverTypePolicy>, CoverTypePolicyRepository>(Lifestyle.Transient);
             container.Register<ITypeRiksRepository<GAPTypeRisk>, TypeRiskRepository>(Lifestyle.Transient);
             container.Register<IPoliciesRepository<GAPPolicies>, PoliciesRepository>(Lifestyle.Transient);
-            container.Register<ICustomerRepository<GAPCustomerPolicy>, CustomerRepository>(Lifestyle.Transient);
+            container.Register<ICustomerRepository
+<GAPCustomerPolicy>, CustomerRepository>(Lifestyle.Transient);
 
 
 
         }
+        
     }
 }

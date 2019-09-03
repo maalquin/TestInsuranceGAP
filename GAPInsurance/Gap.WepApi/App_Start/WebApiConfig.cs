@@ -14,7 +14,9 @@ namespace Gap.WepApi
     {
         public static void Register(HttpConfiguration config)
         {
-            config.EnableCors(new EnableCorsAttribute("http://localhost:4200", headers: "*", methods: "*"));
+
+            
+            //config.EnableCors(new EnableCorsAttribute("*", headers: "*", methods: "*"));
             
 
             // Web API configuration and services
@@ -61,8 +63,20 @@ namespace Gap.WepApi
             routeTemplate: "api/insurance/GetCustomers",
             defaults: new { controller = "insurance", action = "GetCustomers" });
 
+            config.Routes.MapHttpRoute(
+            name: "register",
+            routeTemplate: "api/Account/Register",
+            defaults: new { controller = "Account", action = "Register" });
 
-        }
+            config.Routes.MapHttpRoute(
+              name: "claims",
+              routeTemplate: "api/Account/GetUserClaims",
+              defaults: new { controller = "Account", action = "GetUserClaims" });
+
+            
+
+
+    }
        
     }
 }

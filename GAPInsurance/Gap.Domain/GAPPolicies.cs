@@ -22,6 +22,8 @@ namespace Gap.Domain
         public DateTime DatetimeModified { get; set; }
         public bool FlagEnable { get; set; }
         public string PolicyName { get; set; }
+        public int PolicyNumber { get; set; }
+
 
         
         public virtual GAPTypeRisk GAPTypeRisk { get; set; }

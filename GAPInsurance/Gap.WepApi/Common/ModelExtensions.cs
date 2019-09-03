@@ -9,6 +9,28 @@ namespace Gap.WepApi.Common
 {
     public static class ModelExtensions
     {
+        public static GAPPolicies ToEntity(this PolicyRequestModel policyModel)
+        {
+            var entity = new GAPPolicies
+            {
+                Guid = policyModel.PolicyId.IsEmpty() ? Guid.NewGuid() : policyModel.PolicyId,
+                PolicyName = policyModel.PolicyName,
+                FlagEnable = policyModel.FlagDisable,
+                DatetimeModified = DateTime.Now,
+                DatetimeCreated = policyModel.PolicyId == null ? DateTime.Now : DateTime.Now,
+                ValuePolicy = Convert.ToDecimal(policyModel.PolicyValue),
+                MonthsPolicy = policyModel.AmontMonths,
+                EntityState = (policyModel.PolicyId == null || policyModel.PolicyId.IsEmpty()) ? EntityState.Added : EntityState.Modified,
+                PolicyNumber = Convert.ToInt32(policyModel.PolicyNumber),
+                DatetimePolicyIssuer = policyModel.PolicyIssuer.Value,
+                GAPCustomerPolicy_Guid = policyModel.CustomerId,
+                GAPCoverTypePolicy_Guid = policyModel.CoverTypePolicy.Id,
+                GAPTypeRisk_Guid = policyModel.TypeRisks.Id
+                
+            };
+
+            return entity;
+        }
         public static GAPPolicies ToEntity(this PolicyModel policyModel)
         {
             var entity = new GAPPolicies
@@ -21,7 +43,12 @@ namespace Gap.WepApi.Common
                 ValuePolicy = Convert.ToDecimal(policyModel.PolicyValue),
                 MonthsPolicy = policyModel.AmontMonths,
                 EntityState = policyModel.PolicyId == null ? EntityState.Added : EntityState.Modified,
-                GAPCustomerPolicy = policyModel.customerPolicies.ToEntity()
+                GAPCustomerPolicy = policyModel.customerPolicies.ToEntity(),
+                PolicyNumber = policyModel.PolicyNumber,
+                DatetimePolicyIssuer = policyModel.PolicyIssuer,
+                GAPCustomerPolicy_Guid = policyModel.CustomerId,
+                GAPCoverTypePolicy_Guid = policyModel.CoverTypeId.Value,
+
             };
 
             return entity;

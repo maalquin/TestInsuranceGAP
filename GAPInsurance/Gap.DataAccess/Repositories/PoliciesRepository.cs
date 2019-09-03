@@ -27,7 +27,7 @@ namespace Gap.DataAccess.Repositories
             using (var context = new GapContext())
             {
                 context.Entry(policies).State = policies.EntityState.ToEntityFrameworkState();
-                context.Entry(policies.GAPCustomerPolicy).State = policies.GAPCustomerPolicy.EntityState.ToEntityFrameworkState();
+               // context.Entry(policies.GAPCustomerPolicy).State = policies.GAPCustomerPolicy.EntityState.ToEntityFrameworkState();
                 await context.SaveChangesAsync();
             }
         }

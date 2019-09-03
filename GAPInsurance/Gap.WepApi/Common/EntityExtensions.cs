@@ -53,9 +53,11 @@ namespace Gap.WepApi.Common
                FlagDisable = policies.FlagEnable,
                PolicyValue = policies.ValuePolicy.ToString(),
                customerPolicies = policies.GAPCustomerPolicy.ToModel(),
-               CustomerId = policies.GAPCustomerPolicy_Guid
+               CustomerId = policies.GAPCustomerPolicy_Guid,
+               PolicyNumber = policies.PolicyNumber
 
             };
+      
         }
 
         public static CustomerModel ToModel(this GAPCustomerPolicy customerPolicy)
@@ -67,6 +69,7 @@ namespace Gap.WepApi.Common
                 LastName = customerPolicy.CustomerLastName
             };
         }
+  
 
 
 

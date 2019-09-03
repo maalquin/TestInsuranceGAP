@@ -1,19 +1,32 @@
-<form #form="ngForm" autocomplete="off" *ngIf="service.formData" >
+<form #form="ngForm" (submit)="onSubmit(form)" autocomplete="off" *ngIf="service.formData" >
   <input type="hidden"  name="PolicyId" #PolicyId="ngModel" [(ngModel)]="service.formData.PolicyId">
   <div class="row">
     <div class="col-md-6">
      
         <label>Customer</label>
-        <select name="CustomerId" required #CustomerId="ngModel" [(ngModel)]="service.formData.CustomerId" class="form-control"
+        <select name="CustomerId"  #CustomerId="ngModel" [(ngModel)]="service.formData.CustomerId" class="form-control"
         [class.is-invalid]="!isValid && service.formData.CustomerId==0">
+  
           <option value="0">-Select-</option>
           <option *ngFor="let item of customerList" value="{{item.Id}}">{{item.Name}} {{item.LastName}}</option>
 
         </select>
+        <div *ngIf="CustomerId.touch && ! CustomerId.valid">
+            <div *ngIf="CustomerId.errors.required">
+              Customer is Required
+            </div>
+        </div>
       </div>
       <div class="col-md-6">
         <label>Date Issuer Policy</label>
-        <input type="text" placeholder="Datepicker" class="form-control" bsDatepicker required>
+        <input type="date" name="PolicyIssuer" #PolicyIssuer="ngModel" placeholder="Datepicker" class="form-control" bsDatepicker  [(ngModel)]=service.formData.PolicyIssuer [bsConfig]="{ adaptivePosition: true, 
+          dateInputFormat:'YYYY-MM-DD'}"  required>
+          <div *ngIf="PolicyIssuer.invalid && ( PolicyIssuer.touched || PolicyIssuer.dirty)">
+            <p *ngIf="PolicyIssuer.hasError('required')">
+              Date is Required
+            </p>
+      
+          </div>
       </div>
   </div>
   <br>  <br>
@@ -27,7 +40,7 @@
         <th>Policy Value</th>
     
         <th>
-          <a class="btn btn-sm btn-success text-white" (click)="AddOrEditPolicyItems(null,service.formData.PolicyId)"><i class="fa fa-plus"></i> Add Item</a>
+          <a class="btn btn-sm btn-success text-white"    (click)="AddOrEditPolicyItems(null,service.formData.PolicyId)"><i class="fa fa-plus"></i> Add Item</a>
         </th>
       </thead>
       <tbody>
@@ -38,11 +51,11 @@
         </tr>
   
         <tr *ngFor="let item of service.policyItems;let i=index;">
-          <td>{{item.PolicyNo}}</td>
+          <td>{{item.PolicyNumber}}</td>
           <td>{{item.PolicyName}}</td>
-          <td>{{item.NameRisk}}</td>
-          <td>{{item.NameCover}}</td>
-          <td>{{item.MaxCoverPolicy}}</td>
+          <td>{{item.TypeRisks.RiskName}}</td>
+          <td>{{item.CoverTypePolicy.Name}}</td>
+          <td>{{item.TypeRisks.MaxCovering}}</td>
           <td>{{item.PolicyValue}}</td>
 
           
