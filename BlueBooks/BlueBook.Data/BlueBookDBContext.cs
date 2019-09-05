@@ -26,6 +26,9 @@ namespace BlueBook.Data
             // EF Core 2 doesnt support Cascade on delete for in Memory Database
 
             base.OnModelCreating(builder);
-        }
+           
+
+        
+    }
     }
 }

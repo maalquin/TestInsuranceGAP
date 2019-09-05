@@ -1,7 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿
+
+using System.Net;
+using System.Net.Http;
 using System.Threading.Tasks;
+using BlueBook.Data.Interfaces;
+using BlueBook.Data.Model;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BlueBooks.Controllers
@@ -10,11 +13,19 @@ namespace BlueBooks.Controllers
     [ApiController]
     public class ValuesController : ControllerBase
     {
+        private readonly IAuthorRepository _authorRepository;
+
+        public ValuesController(IAuthorRepository authorRepository)
+        {
+            _authorRepository = authorRepository;
+        }
         // GET api/values
         [HttpGet]
-        public ActionResult<IEnumerable<string>> Get()
+        public async Task<IActionResult> Get()
         {
-            return new string[] { "value1", "value2" };
+          
+            var author = _authorRepository.GetAllWithBooks();
+            return Ok(author);
         }
 
         // GET api/values/5

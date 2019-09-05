@@ -6,4 +6,3 @@ C:\AngularProjects\BlueBooks\BlueBook.Data\obj\Debug\netcoreapp2.1\BlueBook.Data
 C:\AngularProjects\BlueBooks\BlueBook.Data\obj\Debug\netcoreapp2.1\BlueBook.Data.AssemblyInfo.cs
 C:\AngularProjects\BlueBooks\BlueBook.Data\obj\Debug\netcoreapp2.1\BlueBook.Data.dll
 C:\AngularProjects\BlueBooks\BlueBook.Data\obj\Debug\netcoreapp2.1\BlueBook.Data.pdb
-C:\AngularProjects\BlueBooks\BlueBook.Data\obj\Debug\netcoreapp2.1\BlueBook.Data.csprojAssemblyReference.cache

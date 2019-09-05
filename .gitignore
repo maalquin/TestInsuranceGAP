@@ -9,3 +9,10 @@
 .vs/
 /GAPInsurance/GAP.Common/bin/Debug
 /GAPInsurance/Gap.DataAccess/bin/Debug
+/GAPInsurance/Gap.UnitTest/obj
+/BlueBooks/BlueBook.Data/bin/Debug/netcoreapp2.1
+/BlueBooks/BlueBooks/bin/Debug/netcoreapp2.1
+/BlueBooks/BlueBooks/obj/Debug/netcoreapp2.1
+/BlueBooks/BlueBooks/obj
+/GAPInsurance/packages
+/GAPInsurance/GAPInsurance/obj/Release
