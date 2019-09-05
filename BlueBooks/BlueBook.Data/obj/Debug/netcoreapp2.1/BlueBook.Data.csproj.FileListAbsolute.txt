@@ -1,8 +1,0 @@
-C:\AngularProjects\BlueBooks\BlueBook.Data\bin\Debug\netcoreapp2.1\BlueBook.Data.deps.json
-C:\AngularProjects\BlueBooks\BlueBook.Data\bin\Debug\netcoreapp2.1\BlueBook.Data.dll
-C:\AngularProjects\BlueBooks\BlueBook.Data\bin\Debug\netcoreapp2.1\BlueBook.Data.pdb
-C:\AngularProjects\BlueBooks\BlueBook.Data\obj\Debug\netcoreapp2.1\BlueBook.Data.csproj.CoreCompileInputs.cache
-C:\AngularProjects\BlueBooks\BlueBook.Data\obj\Debug\netcoreapp2.1\BlueBook.Data.AssemblyInfoInputs.cache
-C:\AngularProjects\BlueBooks\BlueBook.Data\obj\Debug\netcoreapp2.1\BlueBook.Data.AssemblyInfo.cs
-C:\AngularProjects\BlueBooks\BlueBook.Data\obj\Debug\netcoreapp2.1\BlueBook.Data.dll
-C:\AngularProjects\BlueBooks\BlueBook.Data\obj\Debug\netcoreapp2.1\BlueBook.Data.pdb
